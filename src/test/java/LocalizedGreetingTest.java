@@ -10,7 +10,7 @@ public class LocalizedGreetingTest {
         Locale locale = new Locale("en", "US");
         ResourceBundle messages = ResourceBundle.getBundle("Messages", locale);
         String greeting = messages.getString("greeting");
-        assertEquals("Hello!", greeting);
+        assertEquals("Hello! Welcome to our application.", greeting);
     }
 
     @Test
@@ -18,7 +18,7 @@ public class LocalizedGreetingTest {
         Locale locale = new Locale("es", "ES");
         ResourceBundle messages = ResourceBundle.getBundle("Messages", locale);
         String greeting = messages.getString("greeting");
-        assertEquals("Hola!", greeting);
+        assertEquals("Hola! Bienvenido a nuestra aplicación.", greeting);
     }
 
     @Test
@@ -26,7 +26,7 @@ public class LocalizedGreetingTest {
         Locale locale = new Locale("fr", "FR");
         ResourceBundle messages = ResourceBundle.getBundle("Messages", locale);
         String greeting = messages.getString("greeting");
-        assertEquals("Bonjour!", greeting);
+        assertEquals("Bonjour! Bienvenue dans notre application.", greeting);
     }
 
     @Test
@@ -34,7 +34,15 @@ public class LocalizedGreetingTest {
         Locale locale = new Locale("en", "US"); // Simulate default choice
         ResourceBundle messages = ResourceBundle.getBundle("Messages", locale);
         String greeting = messages.getString("greeting");
-        assertEquals("Hello!", greeting); // Expected default is English
+        assertEquals("Hello! Welcome to our application.", greeting); // Expected default is English
+    }
+
+    @Test
+    public void testFarsiGreeting() {
+        Locale locale = new Locale("fa", "IR");
+        ResourceBundle messages = ResourceBundle.getBundle("Messages", locale);
+        String greeting = messages.getString("greeting");
+        assertEquals("سلام! به برنامه ما خوش آمدید", greeting);
     }
 }
 
